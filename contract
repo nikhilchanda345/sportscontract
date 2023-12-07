@@ -1,0 +1,29 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+contract SportsContract {
+    address public organizer;
+    bool public isRegistrationOpen;
+
+    constructor() {
+        organizer = msg.sender;
+        isRegistrationOpen = true;
+    }
+
+    function changeOrganizer(address newOrganizer) public {
+        require(msg.sender == organizer, "Only the organizer can change the organizer");
+        organizer = newOrganizer;
+    }
+
+    function closeRegistration() public {
+        assert(isRegistrationOpen);
+        isRegistrationOpen = false;
+    }           
+
+    function openRegistration() public {
+         if (isRegistrationOpen) {
+            revert("Registration is already open");
+        }
+        isRegistrationOpen = true;
+    }
+}
