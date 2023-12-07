@@ -51,4 +51,5 @@ This Solidity smart contract, named "SportsContract," facilitates the management
 ## Author
 
 [Nikhil Chandha]
+
 [nikhilchanda098@gmail.com]
